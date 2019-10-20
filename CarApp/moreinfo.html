@@ -1,0 +1,71 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        let dom = {
+            createElement: function (tagName, className, cssProps, location) {
+                //create dom element
+                let element = document.createElement(tagName);
+                //check if this element is valid html element
+                if (element != null) {
+                    //if so, then validate classname existance
+                    if (this._isValidValue(className)) {
+                        element.className = className;
+                    }
+
+
+                    //enumerate all css properties given as  object
+                    for (let f in cssProps) {
+                        //check if object key is valid attribute
+                        if (this._isValidAttr(f)) {
+                            //then use it as attribute
+                            element[f] = cssProps[f];
+                        }
+                        //otherwise,it is just style.Use it as style..
+                        else {
+                            element.style[f] = cssProps[f];
+                        }
+                    }
+                }
+                location.appendChild(element);
+                return element;
+            },
+            _isValidValue: function (val) {
+                return (typeof (val) !== "undefined" && val)
+            },
+            _isValidAttr: function (attr) {
+                return (attr == 'src' || attr == 'href' || attr == 'innerText' || attr == 'id');
+            }
+        }
+
+
+        let div = dom.createElement('div', 'container mt-5', null, document.body);
+        let row = dom.createElement('div', 'row', null, div);
+        let col_6 = dom.createElement('div', 'col-6', null, row);
+        let col6 = dom.createElement('div', 'col-6', null, row);    
+        let car = localStorage.getItem('car');
+        let parsedCar = JSON.parse(car);
+        console.log(parsedCar);
+        dom.createElement('img', null, { "width": "32rem", "src": parsedCar.img }, col_6);
+        dom.createElement('section', 'about', null, div);
+        dom.createElement('p', 'car-info', { "innerText": "Model : " + parsedCar.name }, col6);
+        dom.createElement('p', 'car-info', { "innerText": "Buraxılış ili : " + parsedCar.year }, col6);
+        dom.createElement('p', 'car-info', { "innerText": "Mühərrik :  " + parsedCar.engine }, col6);
+        dom.createElement('p', 'car-info', { "innerText": "Yürüşü : " + parsedCar.range }, col6);
+        dom.createElement('p', 'car-info price', { "innerText": parsedCar.price }, col6);
+    </script>
+</body>
+
+</html>

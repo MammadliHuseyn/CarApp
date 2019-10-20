@@ -1,0 +1,14 @@
+.price{
+    color:white;
+    background:red;
+    padding:1px;
+    font-weight: bolder;
+    font-size:2rem;
+    width: 10rem;
+    text-align: center;
+}
+p{
+    line-height: 5rem;
+    font-size:20px;
+    color:gray
+}

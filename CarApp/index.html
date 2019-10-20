@@ -1,0 +1,268 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let cars = {
+            Toyota: {
+                name: "Toyota Prado",
+                price: "35800$",
+                year: "2019",
+                engine: "2.7l",
+                range: "12000km",
+                img: "images/ToyotaPrado.jpg",
+            },
+            LandRover: {
+                name: "Range rover",
+                price: "34000$",
+                year: "2018",
+                engine: "4.0l",
+                range: "0km",
+                img: "images/LandRover.jpg",
+            },
+            Porsche: {
+                name: "Porsche Panamera",
+                price: "48500$",
+                year: "2013",
+                engine: "4.8l",
+                range: "89000km",
+                img: "images/PorschePanamera.jpg",
+            },
+            Bmw: {
+                name: "BMW X5",
+                price: "47000$",
+                year: "2014",
+                engine: "3.0l",
+                range: "43500km",
+                img: "images/BMWX5.jpg",
+            },
+            Mercedes: {
+                name: "Mercedes S400",
+                price: "74500$",
+                year: "2015",
+                engine: "3.0l",
+                range: "95070km",
+                img: "images/MercedesS400.jpg",
+            },
+            Audi: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi1: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi2: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi3: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi4: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi5: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi6: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi7: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi70: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi76: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi17: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi27: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi73: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+            qAudi74: {
+                name: "Audi Q7",
+                price: "54000$",
+                year: "2015",
+                engine: "3.0l",
+                range: "75600km",
+                img: "images/AudiQ7.jpg",
+            },
+        }
+
+        let dom = {
+            createElement: function (tagName, className, cssProps, location) {
+                //create dom element
+                let element = document.createElement(tagName);
+                //check if this element is valid html element
+                if (element != null) {
+                    //if so, then validate classname existance
+                    if (this._isValidValue(className)) {
+                        element.className = className;
+                    }
+
+
+                    //enumerate all css properties given as  object
+                    for (let f in cssProps) {
+                        //check if object key is valid attribute
+                        if (this._isValidAttr(f)) {
+                            //then use it as attribute
+                            element[f] = cssProps[f];
+                        }
+                        //otherwise,it is just style.Use it as style..
+                        else {
+                            element.style[f] = cssProps[f];
+                        }
+                    }
+                }
+                location.appendChild(element);
+                return element;
+            },
+            _isValidValue: function (val) {
+                return (typeof (val) !== "undefined" && val)
+            },
+            _isValidAttr: function (attr) {
+                return (attr == 'src' || attr == 'href' || attr == 'innerText' || attr == 'id');
+            }
+        }
+
+
+        function CarCreator(object) {
+
+            let mainDiv = dom.createElement("div", "container", null, document.body);
+            let pages =0;
+            let counter = 0;
+            for (let f in object) {
+                counter++;
+                if(counter%6==0){
+                    pages++;
+                }
+                // console.log(counter)
+                console.log(pages)
+                if (counter <= 6) {
+                    let cards = dom.createElement("div", "card", { "width": "31%", "margin": "10px" }, mainDiv);
+                    let images = dom.createElement("img", "card-img-top", { "src": object[f].img }, cards);
+                    let cardBody = dom.createElement("div", "card-body", null, cards);
+                    let title = dom.createElement("h5", "card-title", { "innerText": object[f].name }, cardBody);
+                    let info = dom.createElement("p", "card-title carPrice", { "innerText": cars[f].price }, cardBody);
+                    let exInfo = dom.createElement("p", "card-text", {"innerText": object[f].year + " / " + object[f].engine + " / " + object[f].range }, cardBody);
+                    cards.addEventListener('click', () => {
+                        localStorage.clear();
+                        let car = localStorage.setItem('car', JSON.stringify(object[f]))
+                        document.location = "moreinfo.html";
+                    })
+                }
+                if (counter%6==0) {
+                    let paginationDiv = dom.createElement('div', 'pagination', null, mainDiv);
+                    let navigation = dom.createElement('nav','Page navigation',null,paginationDiv);
+                    let pagination = dom.createElement('ul','pagination',null,navigation);
+                    let pages = dom.createElement('li','page-item',null,pagination);
+                    let links = dom.createElement('a','page-link',{"innerText":counter/6-1,'cursor':'pointer'},pages);
+                    pages.addEventListener('click',function(){
+                        
+                    })
+                }
+
+
+            }
+
+        }
+
+
+
+        CarCreator(cars);
+
+
+
+    </script>
+</body>
+
+</html>
